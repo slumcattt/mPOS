@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import Payment from './src/client/payment/Payment';
+import InventoryGridView from './src/client/inventory/inventory_grid'
 export default class mPOS extends Component {
     render() {
         return (
@@ -23,4 +24,4 @@ export default class mPOS extends Component {
 }
 
 
-AppRegistry.registerComponent('mPOS', () => mPOS);
+AppRegistry.registerComponent('mPOS', () => InventoryGridView);
