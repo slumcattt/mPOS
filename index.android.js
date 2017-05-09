@@ -4,24 +4,10 @@
  * @flow
  */
 
-import React, {Component} from 'react';
 import {
-    AppRegistry,
-    View
-} from 'react-native';
+  AppRegistry,
+} from 'react-native'
 
-import Payment from './src/client/payment/Payment';
-import InventoryGridView from './src/client/inventory/inventory_grid'
-export default class mPOS extends Component {
-    render() {
-        return (
-            <View>
-                <Payment />
+import Main from './src'
 
-            </View>
-        );
-    }
-}
-
-
-AppRegistry.registerComponent('mPOS', () => InventoryGridView);
+AppRegistry.registerComponent('mPOS', () => Main)

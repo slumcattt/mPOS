@@ -19,6 +19,7 @@ import {
   View,
 } from 'react-native'
 
+import Camera from 'react-native-camera';
 export default class InventoryGridView extends Component {
 
 
@@ -67,6 +68,8 @@ export default class InventoryGridView extends Component {
     this._pressData = {}
   }
 
+
+
   render () {
 
     return (
@@ -93,15 +96,17 @@ export default class InventoryGridView extends Component {
      let
        THUMB_URLS = ['https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-ash3/t39.1997/p128x128/851549_767334479959628_274486868_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851561_767334496626293_1958532586_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-ash3/t39.1997/p128x128/851579_767334503292959_179092627_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851589_767334513292958_1747022277_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851563_767334559959620_1193692107_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851593_767334566626286_1953955109_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851591_767334523292957_797560749_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851567_767334529959623_843148472_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851548_767334489959627_794462220_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851575_767334539959622_441598241_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-ash3/t39.1997/p128x128/851573_767334549959621_534583464_n.png', 'https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.1997/p128x128/851583_767334573292952_1519550680_n.png']
 
+    let  bananaImage = "file:///storage/emulated/0/DCIM/IMG_20170507_132206.jpg";
      let rowHash = Math.abs(this.hashCode(rowData))
     var imgSource = {
       uri: THUMB_URLS[rowHash % THUMB_URLS.length],
     }
+    {console.log(imgSource.uri)}
     return (
       <TouchableHighlight onPress={() => this._pressRow(rowID)} underlayColor='rgba(0,0,0,0)'>
         <View>
           <View style={this.styles.row}>
-            <Image style={this.styles.thumb} source={imgSource}/>
+            <Image style={this.styles.thumb} source={{uri:"file:///storage/emulated/0/DCIM/IMG_20170507_132206.jpg"}}/>
             <Text style={this.styles.text}>
               {rowData}
             </Text>
@@ -112,9 +117,9 @@ export default class InventoryGridView extends Component {
   }
   _genRows = (pressData) => {
     var dataBlob = []
-    for (var ii = 0; ii < 100; ii++) {
+    for (var ii = 0; ii < 25; ii++) {
       var pressedText = pressData[ii] ? ' (X)' : ''
-      dataBlob.push('Cell ' + ii + pressedText)
+      dataBlob.push('+')
     }
     return dataBlob
   }
